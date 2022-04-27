@@ -1,0 +1,45 @@
+
+#print the indexes of the letters of the word in the matrix. one can move right left top down from the current position.
+
+path=set()
+def checkString(matrix,string,r,c,k=0):
+    global path#this stores the indexes of only the path whose length is length of string
+    if(k==len(string)):
+        print(path)
+        return(True)#returns true only when the length of the letters matched equal to the length of string
+    if(r<0 or c<0 or r>=len(matrix) or c>=len(matrix[0]) or matrix[r][c]!=string[k] or (r,c) in path):
+        # print(r,c)
+        return(False)
+    path.add((r,c))
+    if(matrix[r][c]==string[k]):
+        print(matrix[r][c],r,c,k)
+        res=(checkString(matrix,string,r+1,c,k+1) or
+            checkString(matrix,string,r-1,c,k+1) or
+            checkString(matrix,string,r,c+1,k+1) or
+            checkString(matrix,string,r,c-1,k+1))#res returns true if any one of the recursion call returns true and that depends only when the length of
+            the the function call tree is equal to the string length.
+    path.remove((r,c))
+    
+    return(res)
+    
+
+
+
+
+matrix=["a b o d".split(" "),"e o v c".split(" "),"d b f g".split(" ")]
+string="bob"
+res=False
+for r in range(len(matrix)):
+    for c in range(len(matrix[0])):
+        if(matrix[r][c]==string[0]):
+            if(checkString(matrix,string,r,c,k=0)):
+                res=True
+                break
+    if(res):
+        break
+            
+        
+        
+        
+        
+        
