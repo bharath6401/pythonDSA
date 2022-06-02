@@ -1,0 +1,14 @@
+# code to find if the given string contains all the binary k digit representations
+# no of binaries formed using k digits=2**k 
+
+
+k=2
+arr="00011011"
+tempArr=[]
+count=0
+for i in range(0,len(arr),2):
+    if(arr[i:i+2] not in tempArr):
+        tempArr.append(arr[i:i+2])
+    print(arr[i:i+2])
+print(len(tempArr)==2**k)
+    
