@@ -24,10 +24,10 @@ def combinationsList(arr,str1,map1,outStr="",outCost=0):
         outCostList.append(outCost)
         return
         
-    if(len(outStr)>len(str1) or outStr not in str1):#we end if the outStr length greater than the input string or 
-    # if we dont have outStr string as a subset of input string cause if the pattern is right then we can just 
-    #eliminate in the start of the program itself ex: str1: lockdown , outStr=down . we will just skip next part cause
-    #we cant make str1 with outStr . we move to the next iteration
+    if(len(outStr)>len(str1) or outStr not in str1):
+# All we do is to find the combinations and check for the input string to be a substring of 
+# the combinations. we use if blocks to cut in the beginning itself if the subcombination does not start 
+# with the input
     
         return
     
