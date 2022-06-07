@@ -24,7 +24,7 @@ def combinationsList(arr,str1,map1,outStr="",outCost=0):
         outCostList.append(outCost)
         return
         
-    if(len(outStr)>len(str1) or outStr not in str1):
+    if(len(outStr)>len(str1) or outStr!= str1[:len(outStr)]):
 # All we do is to find the combinations and check for the input string to be a substring of 
 # the combinations. we use if blocks to cut in the beginning itself if the subcombination does not start 
 # with the input
